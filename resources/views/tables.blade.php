@@ -35,7 +35,7 @@
                             <td><button type="button" id="<?php print $i ;?> ">Start</button></td>
                             <td class="st<?php print $i ;?>">Inactive</td>
                             <td class="ct<?php print $i ;?>">0:0:0</td>
-                            <td class="total<?php print $i ;?>">$0.00</td>
+                            <td class="total total<?php print $i ;?>">$0.00</td>
                           </tr>
                         <?php endfor; ?>
                         <!-- table 1 -->
