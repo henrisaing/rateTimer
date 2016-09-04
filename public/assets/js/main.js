@@ -61,7 +61,7 @@ function convertMStoTime(ms){
   var minutes = parseInt( totalSec / 60 ) % 60;
   var seconds = totalSec % 60;
 
-  var time = hours+":"+minutes+":"+seconds.toFixed(0);
+  var time = hours+":"+checkTime(minutes)+":"+checkTime(seconds.toFixed(0));
 
 
   return time;
