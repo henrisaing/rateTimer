@@ -21,8 +21,8 @@ $(document).ready(function(){
     }else{
       $(this).html("Start");
       $(st).html("Inactive");
-      $(ct).html("0:0:0");
-      $(total).html("$0.00");
+      $(ct).html("0:00:00");
+      // $(total).html("$0.00");
       $(row).removeClass('highlight');
     }
 
@@ -38,6 +38,11 @@ function updateTimes(){
       var startT = new Date(startTimeCheck);
       var timeNow = getCurrentTime();
       var timeDiff = timeNow - startT;
+
+      if (timeDiff > 86400000){ //stops timer if longer than 1 day
+        $(".st"+i).html("Inactive");
+      }
+
       var rate = $(".rate"+i).html();
       $(".ct"+i).html(convertMStoTime(timeDiff));
       $(".total"+i).html("$"+((timeDiff * rate/ 3600)/1000).toFixed(2));
