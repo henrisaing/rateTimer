@@ -14,6 +14,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{URL::asset('assets/css/bootstrap.min.css')}}" >
     <link rel="stylesheet" href="{{URL::asset('assets/css/main.css')}}" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="{{URL::asset('assets/css/flat.css')}}" media="screen" title="no title" charset="utf-8">
 
     <style>
         body {
@@ -26,7 +27,7 @@
     </style>
 </head>
 <body id="app-layout">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-static-top">
         <div class="container">
             <div class="navbar-header">
 

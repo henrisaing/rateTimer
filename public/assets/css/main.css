@@ -5,3 +5,23 @@
 .total{
   font-size: 1.4em;
 }
+
+body{
+  background-image:url('/assets/img/pool-table.jpg');
+  background-size:cover;
+  color:#000;
+}
+
+nav{
+  background-color:rgba(100,100,100,0.4);
+}
+nav a{
+  color:#ededed;
+}
+
+@media(max-width: 480px) {
+    /* For mobile phones: */
+    .people, .rate{
+      display:none;
+    }
+}
