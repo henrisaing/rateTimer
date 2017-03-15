@@ -10,10 +10,10 @@
     <!-- table headings -->
     <thead>
       <th>Table</th>
-      <th class="people">People</th>
-      <th class="rate">Rate</th>
+      <th class="mobile-hide">People</th>
+      <th class="mobile-hide">Rate</th>
       <th>Start / Stop</th>
-      <th>Start Time</th>
+      <th class="mobile-hide">Start Time</th>
       <th>Timer</th>
       <th>Total</th>
     </thead>
@@ -24,10 +24,10 @@
       <?php for($i = 1; $i < 12; $i++): ?>
         <tr class="row<?php print $i ;?>">
           <td><?php print $i ;?></td>
-          <td class="people">1</td>
-          <td class="rate<?php print $i ;?> rate">8</td>
+          <td class="mobile-hide">1</td>
+          <td class="rate<?php print $i ;?> mobile-hide">8</td>
           <td><button type="button" id="<?php print $i ;?> ">Start</button></td>
-          <td class="st<?php print $i ;?>">Inactive</td>
+          <td class="st<?php print $i ;?> mobile-hide">Inactive</td>
           <td class="ct<?php print $i ;?>">0:00:00</td>
           <td class="total total<?php print $i ;?>">$0.00</td>
         </tr>
