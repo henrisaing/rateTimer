@@ -11,10 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('tables');
-});
+Route::get('/', 'HomeController@index');
 
 Route::auth();
 
-// Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
