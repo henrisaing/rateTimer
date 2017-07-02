@@ -3,6 +3,11 @@ $(document).ready(function(){
   startTime();
   updateTimes();
 
+  // if ($("#logged").val() == "true"){
+  //   updateServer();
+  // }
+  
+
   var currentTime = $('.clock').html();
 
 
@@ -16,7 +21,11 @@ $(document).ready(function(){
 
     if($(st).html() == "Inactive"){
       $(st).html(getCurrentTime());
+      $('#status'+clicked).val(getCurrentTime());
+
       $(this).html("Reset");
+      $('#button'+clicked).val("Reset");
+
       $(row).addClass('highlight');
     }else{
       $(this).html("Start");
@@ -93,3 +102,35 @@ function checkTime(i) {
     if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
     return i;
 }
+
+function updateServer(){
+  console.log('update?');
+  $('#form-tables').submit();
+  setTimeout(updateServer, 1000);
+}
+
+// $('#form-tables').submit(function(e){
+//     // e.preventDefault();
+//     $.ajaxSetup({
+//       header:$('meta[name="csrf-token"]').attr('content')
+//     });
+//     console.log($(this));
+//     // });
+//     $.ajax({
+//       type:'post',
+//       url: "/update",
+//       data: $(this).serialize(),
+//       header:$('meta[name="csrf-token"]').attr('content'),
+//       dataType: 'json',
+//       success:function(response){
+//         console.log('success');
+        
+//       },
+//       error:function(data){
+//         console.log("error:"+data);
+//       }
+//     });
+
+
+
+//   });

@@ -1,6 +1,13 @@
 <!-- resources/views/tables.blade.php -->
 @extends('layouts.table')
 @section('content')
+
+@if (Auth::guest())
+  <input type="hidden" id="logged" value="false">
+@else
+  <input type="hidden" id="logged" value="true">
+@endif
+
 <div class="contain contain-black">
   <div class="header header-grey">
     <div class="clock"></div>
@@ -20,10 +27,31 @@
 
     <!-- table body -->
     <tbody>
+    <form action="/update" id="form-tables" method="post">
+    {{ csrf_field() }}
       <?php for($i = 1; $i < 12; $i++): ?>
+        <tr class="row<?php print $i ;?>">
+          <td><?php print $i ;?></td>
+          <input type="hidden" name="name[]" value="<?php print $i ;?>">
+
+          <td class="mobile-hide">1</td>
+          <td class="rate<?php print $i ;?> mobile-hide">8</td>
+
+          <td><button type="button" id="<?php print $i ;?> ">Start</button></td>
+          <input type="hidden" name="button[]" id="button<?php print $i ;?>" value="Start">
+
+          <td class="st<?php print $i ;?> mobile-hide">Inactive</td>
+          <input type="hidden" name="status[]" id="status<?php print $i ;?>" value="Inactive">
+
+          <td class="ct<?php print $i ;?>">0:00:00</td>
+          <td class="total total<?php print $i ;?>">$0.00</td>
+        </tr>
       <?php endfor; ?>
 
-      <tr class="row1">
+      <button type="submit">submit</button>
+    </form>
+
+      <!-- <tr class="row1">
           <td>1</td>
           <td class="mobile-hide">1</td>
           <td class="rate1 mobile-hide">8</td>
@@ -141,7 +169,7 @@
           <td class="st12 mobile-hide">Inactive</td>
           <td class="ct12">0:00:00</td>
           <td class="total total12">$0.00</td>
-        </tr>
+        </tr> -->
 
     </tbody>
   </table>

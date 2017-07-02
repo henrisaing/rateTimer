@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::post('/update', 'HomeController@update');
+
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

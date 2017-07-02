@@ -37,10 +37,10 @@
         </li>
 
         @if (Auth::guest())
-          <li class="float-right"><a href="login }}">Login</a></li>
+          <li class="float-right"><a href="/login">Login</a></li>
           <li class="float-right"><a href="/register">Register</a></li>
         @else
-          <li class="float-right"><a href="logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+          <li class="float-right"><a href="/logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
           <form id="logout-form" action="/logout" method="POST" style="display: none;">{{ csrf_field() }}</form>
           <li class="float-right"><a href="/home">Welcome {{ Auth::user()->name }}!</a></li>
         @endif
