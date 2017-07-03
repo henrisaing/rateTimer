@@ -29,6 +29,27 @@
     <tbody>
     <form action="/update" id="form-tables" method="post">
     {{ csrf_field() }}
+
+    <?php if ($hasTables): ?>
+      <?php foreach ($tables as $table): ?>
+        <tr class="row{{$table->name}}">
+          <td>{{$table->name}}</td>
+          <input type="hidden" name="name[]" value="{{$table->name}}">
+
+          <td class="mobile-hide">1</td>
+          <td class="rate{{$table->name}} mobile-hide">8</td>
+
+          <td><button type="button" id="{{$table->name}}">{{$table->button}}</button></td>
+          <input type="hidden" name="button[]" id="button{{$table->name}}" value="{{$table->button}}">
+
+          <td class="st{{$table->name}} mobile-hide">{{$table->status}}</td>
+          <input type="hidden" name="status[]" id="status{{$table->name}}" value="{{$table->status}}">
+
+          <td class="ct{{$table->name}}">0:00:00</td>
+          <td class="total total{{$table->name}}">$0.00</td>
+        </tr>
+      <?php endforeach ?>
+    <?php else: ?>
       <?php for($i = 1; $i < 12; $i++): ?>
         <tr class="row<?php print $i ;?>">
           <td><?php print $i ;?></td>
@@ -47,6 +68,10 @@
           <td class="total total<?php print $i ;?>">$0.00</td>
         </tr>
       <?php endfor; ?>
+    <?php endif; ?>
+
+
+      
 
       <button type="submit">submit</button>
     </form>

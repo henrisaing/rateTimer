@@ -26,14 +26,15 @@ class HomeController extends Controller
    */
   public function index()
   {
-    if(Auth::check()):
-      $tables = Auth::user()->tables()->get();
+    if (Auth::check()):
+      $tables = Auth::user()->tables()->orderBy('name', 'asc')->get();
     else:
-
+      $tables = "NAHH";
     endif;
 
     return view('tables-saved', [
-      'tables' => $tables
+      'tables' => $tables,
+      'hasTables' => Table::hasTables(),
     ]);
   }
 
@@ -86,12 +87,12 @@ class HomeController extends Controller
     endif;
 
     // return $request->answer;
-    // $data = [
-    //   'success' => true,
-    // ];
-    // return response()->json($data, 200);
+    $data = [
+      'success' => true,
+    ];
+    return response()->json($data, 200);
 
-    return redirect('/');
+    // return redirect('/');
     // return Auth::user()->tables()->get();
   }
 }

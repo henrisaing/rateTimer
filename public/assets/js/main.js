@@ -3,9 +3,9 @@ $(document).ready(function(){
   startTime();
   updateTimes();
 
-  // if ($("#logged").val() == "true"){
-  //   updateServer();
-  // }
+  if ($("#logged").val() == "true"){
+    updateServer();
+  }
   
 
   var currentTime = $('.clock').html();
@@ -34,7 +34,7 @@ $(document).ready(function(){
       // $(total).html("$0.00");
       $(row).removeClass('highlight');
     }
-
+    saveTables();
   });
 
 
@@ -105,32 +105,28 @@ function checkTime(i) {
 
 function updateServer(){
   console.log('update?');
-  $('#form-tables').submit();
-  setTimeout(updateServer, 1000);
+  // $('#form-tables').submit();
+  saveTables();
+  setTimeout(updateServer, 10000);
 }
 
-// $('#form-tables').submit(function(e){
-//     // e.preventDefault();
-//     $.ajaxSetup({
-//       header:$('meta[name="csrf-token"]').attr('content')
-//     });
-//     console.log($(this));
-//     // });
-//     $.ajax({
-//       type:'post',
-//       url: "/update",
-//       data: $(this).serialize(),
-//       header:$('meta[name="csrf-token"]').attr('content'),
-//       dataType: 'json',
-//       success:function(response){
-//         console.log('success');
-        
-//       },
-//       error:function(data){
-//         console.log("error:"+data);
-//       }
-//     });
+function saveTables(){
+  console.log('form send?');
+  $.ajaxSetup({
+    header:$('meta[name="csrf-token"]').attr('content')
+  });
 
-
-
-//   });
+  $.ajax({
+    type:'post',
+    url: "/update",
+    data: $("#form-tables").serialize(),
+    header:$('meta[name="csrf-token"]').attr('content'),
+    dataType: 'json',
+    success:function(response){
+      console.log('success');
+    },
+    error:function(data){
+      console.log("error:"+data);
+    },
+  });
+}
