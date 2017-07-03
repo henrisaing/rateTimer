@@ -69,11 +69,7 @@
         </tr>
       <?php endfor; ?>
     <?php endif; ?>
-
-
-      
-
-      <button type="submit">submit</button>
+    
     </form>
 
       <!-- <tr class="row1">

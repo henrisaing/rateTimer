@@ -29,7 +29,11 @@ $(document).ready(function(){
       $(row).addClass('highlight');
     }else{
       $(this).html("Start");
+      $('#button'+clicked).val("Start");
+
       $(st).html("Inactive");
+      $('#status'+clicked).val("Inactive");
+
       $(ct).html("0:00:00");
       // $(total).html("$0.00");
       $(row).removeClass('highlight');
@@ -104,14 +108,14 @@ function checkTime(i) {
 }
 
 function updateServer(){
-  console.log('update?');
+  // console.log('update?');
   // $('#form-tables').submit();
   saveTables();
-  setTimeout(updateServer, 10000);
+  setTimeout(updateServer, 30000);
 }
 
 function saveTables(){
-  console.log('form send?');
+  // console.log('form send?');
   $.ajaxSetup({
     header:$('meta[name="csrf-token"]').attr('content')
   });
@@ -123,10 +127,10 @@ function saveTables(){
     header:$('meta[name="csrf-token"]').attr('content'),
     dataType: 'json',
     success:function(response){
-      console.log('success');
+      // console.log('success');
     },
     error:function(data){
-      console.log("error:"+data);
+      // console.log("error:"+data);
     },
   });
 }
