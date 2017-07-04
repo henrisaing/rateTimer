@@ -32,7 +32,7 @@
 
     <?php if ($hasTables): ?>
       <?php foreach ($tables as $table): ?>
-        <tr class="row{{$table->name}}">
+        <tr class="row{{$table->name}} <?php if($table->status != 'Inactive'): print("highlight");endif; ?>" >
           <td>{{$table->name}}</td>
           <input type="hidden" name="name[]" value="{{$table->name}}">
 
@@ -69,7 +69,7 @@
         </tr>
       <?php endfor; ?>
     <?php endif; ?>
-    
+
     </form>
 
       <!-- <tr class="row1">

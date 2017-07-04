@@ -27,7 +27,7 @@ class HomeController extends Controller
   public function index()
   {
     if (Auth::check()):
-      $tables = Auth::user()->tables()->orderBy('name', 'asc')->get();
+      $tables = Auth::user()->tables()->get();
     else:
       $tables = "NAHH";
     endif;
