@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'uisnotc.noreply@gmail.com', 'name' => 'RateTimer'],
 
     /*
     |--------------------------------------------------------------------------
