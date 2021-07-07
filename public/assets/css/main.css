@@ -9,6 +9,7 @@
 body{
   background-image:url('/assets/img/pool-table.jpg');
   background-size:cover;
+  background-repeat: none;
   color:#000;
 }
 
