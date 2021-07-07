@@ -39,6 +39,7 @@ class HomeController extends Controller
   }
 
   public function update(Request $request){
+    //only runs if user is logged in
     if(Auth::check()):
       $name = $request->input('name');
       $button = $request->input('button');
