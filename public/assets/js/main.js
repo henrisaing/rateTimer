@@ -20,7 +20,7 @@ $(document).ready(function(){
     var row = ".row"+clicked;
 
     if($(st).html() == "Inactive"){
-      $(st).html(getCurrentTime());
+      $(st).html(getCurrentTime().toLocaleTimeString());
       $('#status'+clicked).val(getCurrentTime());
 
       $(this).html("Reset");
@@ -46,8 +46,9 @@ $(document).ready(function(){
 
 function updateTimes(){
   for(var i = 1; i < 12; i++){
-    var startTimeCheck = $(".st"+i).html();
-    if(startTimeCheck != "Inactive"){
+    var startTimeCheck = $("#status"+i).val();
+    var startTcheck = $(".st"+i).html();
+    if(startTcheck != "Inactive"){
       var startT = new Date(startTimeCheck);
       var timeNow = getCurrentTime();
       var timeDiff = timeNow - startT;
@@ -57,8 +58,9 @@ function updateTimes(){
       }
 
       var rate = $(".rate"+i).html();
+      var ppl = $(".ppl"+i).html();
       $(".ct"+i).html(convertMStoTime(timeDiff));
-      $(".total"+i).html("$"+((timeDiff * rate/ 3600)/1000).toFixed(2));
+      $(".total"+i).html(((timeDiff * rate/ 3600)/1000).toFixed(2));
     }
 
   }

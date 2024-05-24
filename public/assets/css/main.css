@@ -6,11 +6,12 @@
   font-size: 1.4em;
 }
 
-body{
+html, body{
   background-image:url('/assets/img/pool-table.jpg');
-  background-size:cover;
-  background-repeat: none;
+  background-size: cover;
+  background-repeat: no-repeat;
   color:#000;
+  height:100%;
 }
 
 #contain{
@@ -86,6 +87,20 @@ nav li a:hover {
 END NAV
 ************************/
 
+/************************
+TABLE
+************************/
+td{
+  color:white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  overflow: hidden;
+}
+/************************
+END TABLE
+************************/
+.total:before{
+  content: "$";
+}
 
 @media(max-width: 480px) {
     /* For mobile phones: */
